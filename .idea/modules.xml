@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/1. DocumentObjectModule/1. DocumentObjectModule.iml" filepath="$PROJECT_DIR$/1. DocumentObjectModule/1. DocumentObjectModule.iml" />
+      <module fileurl="file://$PROJECT_DIR$/2. DOM Manipulation/2. DOM Manipulation.iml" filepath="$PROJECT_DIR$/2. DOM Manipulation/2. DOM Manipulation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/3. ExcerciseDOMManipulation/3. ExcerciseDOMManipulation.iml" filepath="$PROJECT_DIR$/3. ExcerciseDOMManipulation/3. ExcerciseDOMManipulation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/4. jQuery LAB/4. jQuery LAB.iml" filepath="$PROJECT_DIR$/4. jQuery LAB/4. jQuery LAB.iml" />
+      <module fileurl="file://$PROJECT_DIR$/5. jQueryExcercises/5. jQueryExcercises.iml" filepath="$PROJECT_DIR$/5. jQueryExcercises/5. jQueryExcercises.iml" />
+      <module fileurl="file://$PROJECT_DIR$/6. Advanced Functions/6. Advanced Functions.iml" filepath="$PROJECT_DIR$/6. Advanced Functions/6. Advanced Functions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/7. Advanced Functions Excercises/7. Advanced Functions Excercises.iml" filepath="$PROJECT_DIR$/7. Advanced Functions Excercises/7. Advanced Functions Excercises.iml" />
+    </modules>
+  </component>
+</project>

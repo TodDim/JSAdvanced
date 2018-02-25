@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LinkButtons</title>
+    <link rel="stylesheet" href="link-buttons.css"/>
+    <script src="./JQuerySRC.js"></script>
+    <!--<script src="link-buttons.js"></script>-->
+
+</head>
+<body onload="attachEvents()">
+<a class="button">Sofia</a>
+<a class="button">Plovdiv</a>
+<a class="button">Varna</a>
+<script>
+    function attachEvents() {
+        $('a.button').on('click', buttonClicked);
+
+        function buttonClicked() {
+            $('.selected').removeClass('selected');
+            $(this).addClass('selected');
+// "this" is the event source (the hyperlink clicked)
+        }
+    }
+</script>
+</body>
+</html>

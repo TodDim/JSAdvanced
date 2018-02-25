@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="../4.%20jQuery%20LAB/JQuerySRC.js"></script>
+</head>
+<body>
+<div id="wrapper">
+    <form id="registerForm">
+        <fieldset id="userInfo">
+            <legend>User Information:</legend>
+            <div class="pairContainer">
+                <label for="username">Userame:</label>
+                <input id="username" type="text">
+            </div>
+            <div class="pairContainer">
+                <label for="email">Email:</label>
+                <input id="email" type="text">
+            </div>
+            <div class="pairContainer">
+                <label for="password">Passwrod:</label>
+                <input id="password" type="password">
+            </div>
+            <div class="pairContainer">
+                <label for="confirm-password">Confirm Password:</label>
+                <input id="confirm-password" type="password">
+            </div>
+            <div class="pairContainer">
+                <label for="company">Is Company?</label>
+                <input id="company" type="checkbox">
+            </div>
+        </fieldset>
+        <fieldset id="companyInfo" style="display: none;">
+            <legend>Company Informaion:</legend>
+            <div class="pairContainer">
+                <label for="companyNumber">Company Number</label>
+                <input id="companyNumber" type="number">
+            </div>
+        </fieldset>
+        <button id="submit">Submit</button>
+    </form>
+    <div id="valid" style="display: none">Valid</div>
+</div>
+<!--<script src="formValidation.js"></script>-->
+<script>
+    window.onload = function () {
+        validate();
+    }
+
+    function validate() {
+        let isValid=true;
+
+        let userName = $('#username')
+        let password = $('#password')
+        let email = $('#email')
+        let confPassword = $('#confirm-password')
+        let iscompany = $('#company')
+        let companyInfo = $('#companyInfo')
+        let submit = $('#submit')
+        let valid = $('#valid')
+
+        let userNameRegex = /[0-9A-Za-z]{3,20}/g;
+        let passRegex = /\w{5,15}/g;
+        let reppassRegex = /\w{5,15}/g;
+        let mailRegex = /.*@.*\.+.*/g;
+
+        iscompany.on("change", function () {
+            if(iscompany.is(":checked")){
+
+                companyInfo.css("display","block")
+                }
+                else{
+                companyInfo.css("display","none")
+            }
+        })
+
+        function validateForm() {
+            validateField(userName, userNameRegex)
+            console.log(isValid);
+            validateField(email, mailRegex)
+            console.log(isValid);
+            validateField(password, passRegex)
+            console.log(isValid);
+
+            if(iscompany.is(":checked")){
+                if ($('#companyNumber').val()>=1000&&$('#companyNumber').val()<=9999){
+                    $('#companyNumber').css('border','none')
+                }
+                else {
+                    $('#companyNumber').css('border','solid red')
+                    isValid=false
+                }
+            }
+            console.log(isValid);
+            if(password.val()!==confPassword.val()){
+                $('#confirm-password').css('border','solid red')
+                isValid=false
+            }
+//            console.log(isValid);
+
+            if(isValid===true){
+            valid.css("display","block")
+        }
+        else{
+            valid.css("display","none")
+        }
+
+        }
+
+        function validateField(input, regex) {
+            if (!regex.test(input.val())) {
+//                console.log('yes');
+                input.css('border', 'solid red')
+                isValid=false
+            }
+            else{
+                input.css('border', 'none')
+
+            }
+        }
+
+        submit.on('click', function (ev) {
+            ev.preventDefault()
+            validateForm()
+//
+
+        })
+    }
+</script>
+</body>
+</html>
