@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Manager</title>
+    <style>
+        body {
+            padding: 30px
+        }
+
+        div {
+            margin-bottom: 20px
+        }
+
+        table {
+            border: 1px solid #000;
+            border-collapse: collapse;
+            margin: auto
+        }
+
+        caption {
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            background: #000;
+            padding: 5px
+        }
+
+        td, th {
+            padding: 5px 20px;
+            text-align: center
+        }
+
+        tfoot td, th {
+            background: #ccc
+        }
+
+        tr:nth-child(odd) {
+            background: #eee
+        }
+
+        tr:nth-child(even) {
+            background: #ddd
+        }
+
+        tfoot {
+            border-top: 1px solid #000
+        }
+
+        tfoot > tr td {
+            font-style: italic;
+            font-weight: 700
+        }
+
+        button {
+            margin: auto;
+            cursor: pointer
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+
+<div id="amazon"></div>
+
+<div id="ebay"></div>
+
+<div id="walmart"></div>
+
+<script>
+    class PaymentManager {
+        constructor(title) {
+            this.title = title
+        }
+        addItem(){
+            console.log('fa');
+        }
+
+        render(id) {
+            let table = $(`<table><caption>${this.title} Payment Manager</caption><thead><th class="name">Name</th><th class="category">Category</th>
+<th class="price">Price</th><th>Actions</th>
+</thead><tbody class="payments"></tbody><tfoot class="input-data"></table>`)
+            $(`.payments`).append('<tr></tr>')
+            let tr = $(`table tbody tr`)
+            tr.append('<td><input type="text"></td>')
+            tr.append('<td><input type="text"></td>')
+            tr.append('<td><input type="number"></td>')
+            tr.append('<td><button>Delete</button></td>')
+
+            $('.input-data').append('<tr></tr>')
+             let tr2 = $(`table tfoot tr`)
+            tr2.append('<td><input name="name" type="text"></td>')
+            tr2.append('<td><input name="category" type="text"></td>')
+            tr2.append('<td><input name="price" type="number"></td>')
+            tr2.append(`<td><button>Add</button></td></tr>`)
+            $('* button [text="add"]').on('click',function () {
+                console.log('fa');
+            })
+
+
+            table.appendTo($(`body #${id}`))
+
+
+        }
+    }
+</script>
+<script>
+    $(function () {
+        let paymentMangersData = [
+            ['amazon', 'Amazon'],
+            ['ebay', 'eBay'],
+//            ['walmart', 'Walmart'],
+            // Others
+        ]
+
+        for (let [target, title] of paymentMangersData) {
+            let paymentManager = new PaymentManager(title)
+            paymentManager.render(target)
+        }
+    })
+</script>
+</body>
+</html>	 
